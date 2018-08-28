@@ -1,9 +1,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">My Music</string>
-    <string name="back"><![CDATA[>]]></string>
-    <string name="rewind"><![CDATA[<<]]></string>
-    <string name="forward"><![CDATA[>>]]></string>
-    <string name="pause">||</string>
+    <string name="play">Play</string>
+    <string name="rewind">Rewind</string>
+    <string name="forward">Forward</string>
+    <string name="pause">Pause</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
     <string name="now_playing">Now Playing</string>
     <string name="my_music">My Music</string>
     <string name="buy_music">Buy Music</string>
@@ -11,6 +13,7 @@
     <string name="title">Title</string>
     <string name="play_music_summary">This activity plays the currently selected music. It shows the artist, the title and the duration of the song. The user can play, pause, fast rewind or fast forward the music, or play the next or the previous song with the buttons.</string>
     <string name="main_activity_summary">The main activity contains two buttons to navigate to the my music and the buy music activity.</string>
+    <string name="search">Search</string>
     <string name="search_for">Search for...</string>
     <string name="buy_activity_summary">In this activity the user can search for songs using Google-Music-API and buy them using the Google Play In-App Billing API.</string>
     <string name="my_music_summary">This activity contains a list of the users own music files. Clicking on an item plays the song by opening the play music activity.</string>

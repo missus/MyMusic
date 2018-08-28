@@ -22,8 +22,8 @@ import java.util.ArrayList;
 
 public class MyMusicActivity extends AppCompatActivity {
 
-    public ArrayList<Music> musicList;
-    public ArrayAdapter musicAdapter;
+    private ArrayList<Music> musicList;
+    private ArrayAdapter musicAdapter;
     private static int MY_TYPE = 1;
 
     @Override
@@ -31,25 +31,26 @@ public class MyMusicActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_music_activity);
         loadMusic();
-        ListView listView = (ListView) findViewById(R.id.list_view_music);
-        musicAdapter = new MusicAdapter(this, musicList, MY_TYPE);
-        listView.setAdapter(musicAdapter);
+        ListView listView = findViewById(R.id.list_view_music);
+        if (musicList != null) {
+            musicAdapter = new MusicAdapter(this, musicList, MY_TYPE);
+            listView.setAdapter(musicAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MyMusicActivity.this, PlayMusicActivity.class);
-                Music currentMusic = musicList.get(position);
-                Uri currentMusicUri = Uri.parse(currentMusic.getData());
-                intent.putExtra("title", currentMusic.getTitle());
-                intent.putExtra("artist", currentMusic.getArtist());
-                intent.putExtra("list", musicList);
-                intent.putExtra("position", position);
-                intent.setData(currentMusicUri);
-                startActivity(intent);
-            }
-        });
-
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(MyMusicActivity.this, PlayMusicActivity.class);
+                    Music currentMusic = musicList.get(position);
+                    Uri currentMusicUri = Uri.parse(currentMusic.getData());
+                    intent.putExtra("title", currentMusic.getTitle());
+                    intent.putExtra("artist", currentMusic.getArtist());
+                    intent.putExtra("list", musicList);
+                    intent.putExtra("position", position);
+                    intent.setData(currentMusicUri);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     private void loadMusic() {

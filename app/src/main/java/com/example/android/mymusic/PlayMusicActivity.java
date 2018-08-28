@@ -31,7 +31,7 @@ public class PlayMusicActivity extends AppCompatActivity implements MediaPlayer.
     private int seekForwardTime = 5000;
     private int seekBackwardTime = 5000;
     private int currentMusicIndex = 0;
-    private ArrayList<Music> musicList = new ArrayList<Music>();
+    private ArrayList<Music> musicList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,16 +41,16 @@ public class PlayMusicActivity extends AppCompatActivity implements MediaPlayer.
         musicList = (ArrayList<Music>) intent.getSerializableExtra("list");
         currentMusicIndex = intent.getIntExtra("position", 0);
 
-        btnPlay = (ImageButton) findViewById(R.id.play);
-        btnForward = (ImageButton) findViewById(R.id.forward);
-        btnBackward = (ImageButton) findViewById(R.id.backward);
-        btnNext = (ImageButton) findViewById(R.id.next);
-        btnPrevious = (ImageButton) findViewById(R.id.previous);
-        musicProgressBar = (SeekBar) findViewById(R.id.music_progress);
-        titleView = (TextView) findViewById(R.id.title);
-        artistView = (TextView) findViewById(R.id.artist);
-        currentDurationView = (TextView) findViewById(R.id.current_duration);
-        totalDurationView = (TextView) findViewById(R.id.total_duration);
+        btnPlay = findViewById(R.id.play);
+        btnForward = findViewById(R.id.forward);
+        btnBackward = findViewById(R.id.backward);
+        btnNext = findViewById(R.id.next);
+        btnPrevious = findViewById(R.id.previous);
+        musicProgressBar = findViewById(R.id.music_progress);
+        titleView = findViewById(R.id.title);
+        artistView = findViewById(R.id.artist);
+        currentDurationView = findViewById(R.id.current_duration);
+        totalDurationView = findViewById(R.id.total_duration);
 
         if (mediaPlayer == null) {
             mediaPlayer = new MediaPlayer();
@@ -68,11 +68,13 @@ public class PlayMusicActivity extends AppCompatActivity implements MediaPlayer.
                     if (mediaPlayer != null) {
                         mediaPlayer.pause();
                         btnPlay.setImageResource(R.drawable.play);
+                        btnPlay.setContentDescription(getString(R.string.play));
                     }
                 } else {
                     if (mediaPlayer != null) {
                         mediaPlayer.start();
                         btnPlay.setImageResource(R.drawable.pause);
+                        btnPlay.setContentDescription(getString(R.string.pause));
                     }
                 }
             }
@@ -171,7 +173,7 @@ public class PlayMusicActivity extends AppCompatActivity implements MediaPlayer.
 
             totalDurationView.setText(utilities.milliSecondsToTimer(totalDuration));
             currentDurationView.setText(utilities.milliSecondsToTimer(currentDuration));
-            int progress = (int) (utilities.getProgressPercentage(currentDuration, totalDuration));
+            int progress = utilities.getProgressPercentage(currentDuration, totalDuration);
             musicProgressBar.setProgress(progress);
             handler.postDelayed(this, 100);
         }

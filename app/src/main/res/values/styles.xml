@@ -5,4 +5,39 @@
         <item name="colorPrimaryDark">@color/color06</item>
         <item name="colorAccent">@color/color01</item>
     </style>
+
+    <style name="BigButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginEnd">@dimen/padding_little</item>
+        <item name="android:layout_marginLeft">@dimen/padding_little</item>
+        <item name="android:layout_marginRight">@dimen/padding_little</item>
+        <item name="android:layout_marginStart">@dimen/padding_little</item>
+        <item name="android:layout_marginTop">@dimen/padding_little</item>
+        <item name="android:backgroundTint">@color/color01</item>
+        <item name="android:textColor">@color/color07</item>
+    </style>
+
+    <style name="ImageButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/round_button</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="SmallTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:textColor">@color/color06</item>
+    </style>
+
+    <style name="PriceTextStyle" parent="SmallTextStyle">
+        <item name="android:paddingLeft">@dimen/padding_small</item>
+        <item name="android:paddingStart">@dimen/padding_small</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_weight">1</item>
+    </style>
 </resources>
